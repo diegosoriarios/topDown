@@ -246,12 +246,12 @@
 								for(var a = 0; a < 16; a++){
 									for(var b = 0; b < 16; b++){
 										if(Math.random() < 0.1){
-											bloodshed.push({x: (enemy[j].x + (a * 4)) - 16, y: (enemy[j].y + (b * 4)) - 16, w: 2, h: 2})
+											bloodshed.push({x: (enemy[j].x + (a * 4)) - 16, y: (enemy[i].y + (b * 4)) - 16, w: 2, h: 2})
 										}
 									}
 								}
 							}else{
-								for(var a = 0; a < 32; a++){
+								for(var a = 0; a < 16; a++){
 									bloodshed.splice(a, 1);
 								}
 							}
