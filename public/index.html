@@ -258,6 +258,13 @@
 								for(var a = 0; a < 16; a++){
 									bloodshed.splice(a, 1);
 								}
+								for(var a = 0; a < 16; a++){
+									for(var b = 0; b < 16; b++){
+										if(Math.random() < 0.1){
+											bloodshed.push({x: (enemy[j].x + (a * 4)) - 16, y: (enemy[j].y + (b * 4)) - 16, w: 2, h: 2})
+										}
+									}
+								}
 							}
 							enemy.splice(j, 1);
 							break;
@@ -295,12 +302,12 @@
 					size += ((0.05 - part) * 10) * 4;
 				}
 				drawFocus(size);
-				drawEntity(player.x + 2, player.y + 4, size, "#000");
+				drawEntity(player.x + 2, player.y + 2 , size * 1.1, "#000");
 				drawEntity(player.x, player.y, size, "#c00", 1);
 				
 				for (var i = 0; i < bullets.length; ++i) {
 					var b = bullets[i];
-					drawEntity(b.x, b.y, 2, "#0c0");
+					drawEntity(b.x, b.y, 2, "#000");
 				}
 				while (bullets.length > 0 && bullets[0].until == frame) {
 					bullets.shift();
