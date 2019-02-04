@@ -142,15 +142,17 @@
 			}
 
 			function click(event) {
-				var speed = 800; 
-				var b = {
-					until: frame + (FPS * 2), 
-					x: player.x + dir.x * 10,
-					y: player.y + dir.y * 10,
-					dx: (dir.x * speed) / (FPS / 60),
-					dy: (dir.y * speed) / (FPS / 60),
-				};
-				bullets.push(b);
+				if(bullets.length < 8){
+					var speed = 800; 
+					var b = {
+						until: frame + (FPS * 2), 
+						x: player.x + dir.x * 10,
+						y: player.y + dir.y * 10,
+						dx: (dir.x * speed) / (FPS / 60),
+						dy: (dir.y * speed) / (FPS / 60),
+					};
+					bullets.push(b);
+				}
 			}
 
 			function drawEntity(x, y, size, color, alpha) {
@@ -246,7 +248,7 @@
 							y: b.y - enemy[j].y,
 						};
 						if (Math.sqrt(diff.x * diff.x + diff.y * diff.y) < 12) {
-							if(bloodshed.length < 240){
+							if(bloodshed.length < 360){
 								for(var a = 0; a < 16; a++){
 									for(var b = 0; b < 16; b++){
 										if(Math.random() < 0.1){
@@ -302,6 +304,7 @@
 					size += ((0.05 - part) * 10) * 4;
 				}
 				drawFocus(size);
+				//sombra
 				drawEntity(player.x + 2, player.y + 2 , size * 1.1, "#000");
 				drawEntity(player.x, player.y, size, "#c00", 1);
 				
