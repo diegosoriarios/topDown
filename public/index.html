@@ -16,6 +16,10 @@
 			div#holder {
 				text-align: center;
 			}
+
+			canvas {
+				border: 1px solid black;
+			}
 		</style>
 	</head>
 	<body>
@@ -96,7 +100,7 @@
 				setInterval(function () {
 					var time = new Date().getTime();
 
-					context.fillStyle = "#000";
+					context.fillStyle = "#fff";
 					context.fillRect(0, 0, canvas.width, canvas.height);
 
 					frame += 1;
@@ -157,7 +161,7 @@
 				context.arc(x, y, size, 0, Math.PI * 2, false);
 				context.closePath();
 				context.fillStyle = color;
-				context.globalAlpha = 0.5;
+				context.globalAlpha = alpha;
 				context.fill();
 
 				context.restore();
@@ -167,7 +171,7 @@
 				context.save();
 
 				var grad = context.createRadialGradient(player.x, player.y, playerSize, player.x, player.y, 400);
-				grad.addColorStop(0, "#fff");
+				grad.addColorStop(0, "#0f0");
 				grad.addColorStop(1, "rgba(255,255,255,0)");
 
 				context.beginPath();
@@ -291,7 +295,8 @@
 					size += ((0.05 - part) * 10) * 4;
 				}
 				drawFocus(size);
-				drawEntity(player.x, player.y, size, "#c00");
+				drawEntity(player.x + 2, player.y + 4, size, "#000");
+				drawEntity(player.x, player.y, size, "#c00", 1);
 				
 				for (var i = 0; i < bullets.length; ++i) {
 					var b = bullets[i];
