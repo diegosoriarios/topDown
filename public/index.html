@@ -242,11 +242,11 @@
 							y: b.y - enemy[j].y,
 						};
 						if (Math.sqrt(diff.x * diff.x + diff.y * diff.y) < 12) {
-							if(bloodshed.length < 120){
+							if(bloodshed.length < 240){
 								for(var a = 0; a < 16; a++){
 									for(var b = 0; b < 16; b++){
 										if(Math.random() < 0.1){
-											bloodshed.push({x: (enemy[j].x + (a * 4)) - 16, y: (enemy[i].y + (b * 4)) - 16, w: 2, h: 2})
+											bloodshed.push({x: (enemy[j].x + (a * 4)) - 16, y: (enemy[j].y + (b * 4)) - 16, w: 2, h: 2})
 										}
 									}
 								}
