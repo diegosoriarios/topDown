@@ -3,7 +3,6 @@
 	<head>
 		<title>Chat</title>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="styleshet" href="styles.css" />
 		<style>
 			body {
@@ -27,13 +26,12 @@
 			<canvas id="game" width="960" height="640"></canvas>
 		</div>
 		<script type="text/javascript">
-			var socket = io('http://localhost:3000')
+			//var socket = io('http://localhost:3000')
 
 			const canvas = document.getElementById("game");
 			const context = canvas.getContext("2d");
 			var frame = 0;
 			var FPS = 120;
-			var NOW = 0;
 
 			var player = { x: null, y: null };
 			var moveDelta = { left: 0, right: 0, up: 0, down: 0 };
@@ -96,7 +94,6 @@
 				}
 
 				var interval_ms = 1 / FPS * 1000;
-				NOW = new Date().getTime();
 				setInterval(function () {
 					var time = new Date().getTime();
 
@@ -318,7 +315,7 @@
 				
 				for (var i = 0; i < enemy.length; ++i) {
 					var e = enemy[i];
-					drawEntity(e.x, e.y, 6, "#0f0", 0.75);
+					drawEntity(e.x, e.y, 6, "#0f0", 1);
 				}
 			}
 
