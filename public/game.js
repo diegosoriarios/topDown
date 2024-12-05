@@ -8,6 +8,8 @@ var FPS = 120;
 var shadow = document.createElement('canvas'),
 sctx = shadow.getContext('2d');
 
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
 shadow.width = canvas.width
 shadow.height = canvas.height
 
@@ -280,8 +282,9 @@ function update() {
       x: e.x - player.x + (Math.random() - 0.5) * 100,
       y: e.y - player.y + (Math.random() - 0.5) * 100,
     });
-    e.x -= vec.x * (10 / FPS);
-    e.y -= vec.y * (10 / FPS);
+    const speed = 80
+    e.x -= vec.x * (speed / FPS);
+    e.y -= vec.y * (speed / FPS);
   }
 }
 
